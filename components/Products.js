@@ -1,6 +1,7 @@
 import React from 'react';
-import { StyleSheet, Text, View, Pressable} from 'react-native';
-
+import {StyleSheet, Text, View, Pressable, Button} from 'react-native';
+import { FontAwesome } from '@expo/vector-icons';
+import Colors from '../constants/Colors';
 const Products = ({name, deleteProduct, idString})=>{
 
     return(
@@ -9,9 +10,11 @@ const Products = ({name, deleteProduct, idString})=>{
             onPress={() => deleteProduct(idString)}
         >
             <View style={styles.items}>
-                <Text style={styles.element}>{name}</Text>
+                <Text style={styles.element}><FontAwesome name="remove" size={25} color={Colors.white} /> {name}</Text>
             </View>
         </Pressable>
+
+
 
 
     )
@@ -20,15 +23,17 @@ const Products = ({name, deleteProduct, idString})=>{
 
 const styles = StyleSheet.create({
     items:{
-        marginTop:10
+        marginTop:10,
+        borderRadius: 6,
+        backgroundColor: Colors.danger,
+        padding: 20,
     },
     element:{
-        backgroundColor: "#ffb6c1",
-        padding: 20,
-        fontSize:17,
-        marginVertical: 6
+        color: Colors.white,
+        fontSize:25,
+    },
+   
 
-
-    }
+   
 });
 export default Products
